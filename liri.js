@@ -19,7 +19,6 @@ function instructions() {
 
 function concert() {
     // console.log('concert-this');
-    instructions();
 
     var concertURL = "https://rest.bandsintown.com/artists/" + itemToSearch + "/events?app_id=codingbootcamp";
 
@@ -35,32 +34,47 @@ function concert() {
             };
         };
     });
-}
+};
 
 function song() {
-    instructions();
     console.log(`spotify-this-song`);
-}
+};
 
 function movie() {
-    instructions();
+    // instructions();
+    // console.log('item to search = ', itemToSearch);
 
-    var movie = "Mr. Nobody";
     var omdbURL = "https://www.omdbapi.com/?t=" + itemToSearch + "&y=&plot=short&apikey=trilogy";
 
-    request(omdbURL, function (error, response, body) {
-        // console.log('error', error);
-        body = JSON.parse(body);
-        if (body.length < 1) {
-            console.log("There is no info for this movie. Please try another title.");
-        } else {
-            console.log('Title:', body.Title, '\nYear:', body.Year, '\nIMDB Rating: ' + body.imdbRating, '\nRotten Tomatoes rating: ', body.Ratings[1].Value, '\nCountry: ', body.Country, '\nLanguage', body.Language, '\nPlot: ', body.Plot, '\nActors & Actresses: ', body.Actors)
-        };
-    });
+    //condition if user does not pick a movie title. Defaults to Mr. Nobody
+    if (itemToSearch === undefined) {
+        request('https://www.omdbapi.com/?t="Mr. Nobody"&y=&plot=short&apikey=trilogy', function (error, response, body) {
+            body = JSON.parse(body);
+            console.log('Title:', body.Title, '\nYear:', body.Year, '\nIMDB Rating: ' + body.imdbRating, '\nRotten Tomatoes rating: ', body.Ratings[1].Value, '\nCountry: ', body.Country, '\nLanguage', body.Language, '\nPlot: ', body.Plot, '\nActors & Actresses: ', body.Actors);
+        });
+    } else {
+        request(omdbURL, function (error, response, body) {
+
+            body = JSON.parse(body);
+
+            // console.log('body.Response is: ', body.Response)
+            /* error checking - if user enters movie title not in the IMDB database, or enters an incorrect title */
+            if (body.Response === 'False') {
+                console.log('Movie not found. Please check the title or try another title.');
+            } else {
+                console.log('Title:', body.Title, '\nYear:', body.Year, '\nIMDB Rating: ' + body.imdbRating, '\nRotten Tomatoes rating: ', body.Ratings[1].Value, '\nCountry: ', body.Country, '\nLanguage', body.Language, '\nPlot: ', body.Plot, '\nActors & Actresses: ', body.Actors);
+            };
+
+        });
+
+    };
+
+
+
+
 }
 
 function whatItSays() {
-    instructions();
 
     fs.readFile('random.txt', 'utf8', function (error, data) {
         var randomTxtArray = data.split(',')
