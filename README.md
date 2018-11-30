@@ -7,13 +7,15 @@ LIRI makes use of JavaScript, Node.js and various packages to take in user input
 1. If not installed already, download & install Node.js on your computer: https://nodejs.org/en/
 
 2. Copy the files to the directory you wish to run LIRI from  
-3. If you wish to use the Spotify functionality, you will need to get a `Spotify ID` and `secret`. 
-    a. Step One: Visit <https://developer.spotify.com/my-applications/#!/>
+3. If you wish to use the Spotify functionality, you will need to get a `Spotify ID` and `secret`.
 
-   b. Step Two: Either login to your existing Spotify account or create a new one (a free account is fine) and log in.
-    c. Step Three: Once logged in, navigate to <https://developer.spotify.com/my-applications/#!/applications/create> to register a new application to be used with the Spotify API. You can fill in whatever you'd like for these fields. When finished, click the "complete" button.
+    * Step One: Visit <https://developer.spotify.com/my-applications/#!/>
 
-   * Step Four: On the next screen, scroll down to where you see your client id and client secret. Copy these values down somewhere, you'll need them to use the Spotify API and the [node-spotify-api package](https://www.npmjs.com/package/node-spotify-api).
+    * Step Two: Either login to your existing Spotify account or create a new one (a free account is fine) and log in.
+
+    * Step Three: Once logged in, navigate to <https://developer.spotify.com/my-applications/#!/applications/create> to register a new application to be used with the Spotify API. You can fill in whatever you'd like for these fields. When finished, click the "complete" button.
+
+    * Step Four: On the next screen, scroll down to where you see your client id and client secret. Copy these values down somewhere, you'll need them to use the Spotify API and the [node-spotify-api package](https://www.npmjs.com/package/node-spotify-api).
 
 
 4. SPOTIFY_ID=your-spotify-id
