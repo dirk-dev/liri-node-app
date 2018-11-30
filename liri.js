@@ -53,7 +53,7 @@ function song() {
         if (data.tracks.items[0].preview_url === null) {
             console.log('\nArtist:', data.tracks.items[0].album.artists[0].name, '\nSong title:', data.tracks.items[0].name, '\nSpotify preview link:', 'not available', '\nAlbum:', data.tracks.items[0].album.name);
         } else {
-            console.log('\nArtist:', data.tracks.items[0].album.artists[0].name, '\nSong title:', data.tracks.items[0].name, '\nSpotify preview link: (CTRL-click/CMD-click to play the preview', data.tracks.items[0].preview_url, '\nAlbum:', data.tracks.items[0].album.name);
+            console.log('\nArtist:', data.tracks.items[0].album.artists[0].name, '\nSong title:', data.tracks.items[0].name, '\nSpotify preview link:', data.tracks.items[0].preview_url, '\nAlbum:', data.tracks.items[0].album.name);
         };
     });
 

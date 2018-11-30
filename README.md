@@ -37,8 +37,8 @@ Note: For elements with more than 1 word in their name, surround the content in 
 
 For example - type this at the command line: **`node liri.js movie-this "Star Wars"`**
 
-### LIRI-Spotify demo
-![LIRI Spotify demo](./gifs/liri-spotify.gif)
+### LIRI-help demo
+![LIRI Spotify demo](./gifs/liri-help.gif)
 
 
 ## Technologies used:
