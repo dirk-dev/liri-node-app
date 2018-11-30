@@ -3,18 +3,16 @@ var fs = require('fs');
 
 var keysJS = require("./keys.js");
 var request = require('request');
-var spotify = require('node-spotify-api');
+var Spotify = require('node-spotify-api');
 var moment = require('moment');
 
-var spotifyAPI = new spotify(keysJS.spotify);
+var spotify = new Spotify(keysJS.spotify);
 
 var command = process.argv[2];
 var itemToSearch = process.argv[3];
 
-// console.log(command, itemToSearch);
-
-function instructions() {
-    console.log("____________________________________________________________________________________\nINSTRUCTIONS:\nTo use this app, enter 2 items at the command line: \nfor concert info, type concert-this, followed by the artist you want to search.\nFor spotify info, type spotify-this-song, followed by the artist name. \nFor movie info, type movie-this, followed by the movie title. \ndo-what-it-says, processes the output from an existing text file, random.txt. \nFor elements with more than 1 word in their name, surround the content in quotes.\nFor example - type this at the command line: node liri.js movie-this \"Star Wars\"\n____________________________________________________________________________________")
+function help() {
+    console.log("____________________________________________________________________________________\nInstructions:\nTo use this app, enter 2 items at the command line: \nfor concert info, type concert-this, followed by the artist you want to search.\nFor spotify info, type spotify-this-song, followed by the artist name. \nFor movie info, type movie-this, followed by the movie title. \ndo-what-it-says, processes the output from an existing text file, random.txt. \nFor elements with more than 1 word in their name, surround the content in quotes.\nFor example - type this at the command line: node liri.js movie-this \"Star Wars\"\n____________________________________________________________________________________")
 };
 
 function concert() {
@@ -23,10 +21,11 @@ function concert() {
     var concertURL = "https://rest.bandsintown.com/artists/" + itemToSearch + "/events?app_id=codingbootcamp";
 
     request(concertURL, function (error, response, body) {
-        // console.log('error', error);
-        // console.log(JSON.parse(body));
         body = JSON.parse(body);
-        if (body.length < 1) {
+        //error detection - THIS DOES NOT WORK
+        if (body.Response === 'warn=Not found') {
+            console.log('its false!')
+        } else if (body.length < 1) {
             console.log("There is no info for this band. Please try another band.");
         } else {
             for (let i = 0; i < body.length; i++) {
@@ -37,12 +36,29 @@ function concert() {
 };
 
 function song() {
-    console.log(`spotify-this-song`);
+
+    if (process.argv[3] === undefined) {
+        itemToSearch = "The%20Sign%20Ace%20of%20Base";
+    }
+    spotify.search({
+        type: 'track',
+        limit: '1',
+        market: 'from_token',
+        query: itemToSearch
+    }, function (err, data) {
+        if (err) {
+            console.log('There was an error. Please try again');
+        };
+        if (data.tracks.items[0].preview_url === null) {
+            console.log('\nArtist:', data.tracks.items[0].album.artists[0].name, '\nSong title:', data.tracks.items[0].name, '\nSpotify preview link:', 'not available', '\nAlbum:', data.tracks.items[0].album.name);
+        } else {
+            console.log('\nArtist:', data.tracks.items[0].album.artists[0].name, '\nSong title:', data.tracks.items[0].name, '\nSpotify preview link:', data.tracks.items[0].preview_url, '\nAlbum:', data.tracks.items[0].album.name);
+        }
+    });
+
 };
 
 function movie() {
-    // instructions();
-    // console.log('item to search = ', itemToSearch);
 
     var omdbURL = "https://www.omdbapi.com/?t=" + itemToSearch + "&y=&plot=short&apikey=trilogy";
 
@@ -50,29 +66,22 @@ function movie() {
     if (itemToSearch === undefined) {
         request('https://www.omdbapi.com/?t="Mr. Nobody"&y=&plot=short&apikey=trilogy', function (error, response, body) {
             body = JSON.parse(body);
-            console.log('Title:', body.Title, '\nYear:', body.Year, '\nIMDB Rating: ' + body.imdbRating, '\nRotten Tomatoes rating: ', body.Ratings[1].Value, '\nCountry: ', body.Country, '\nLanguage', body.Language, '\nPlot: ', body.Plot, '\nActors & Actresses: ', body.Actors);
+            console.log('Title:', body.Title, '\nYear:', body.Year, '\nIMDB Rating:', body.imdbRating, '\nRotten Tomatoes rating:', body.Ratings[1].Value, '\nCountry:', body.Country, '\nLanguage:', body.Language, '\nPlot:', body.Plot, '\nActors & Actresses:', body.Actors);
         });
     } else {
         request(omdbURL, function (error, response, body) {
 
             body = JSON.parse(body);
 
-            // console.log('body.Response is: ', body.Response)
             /* error checking - if user enters movie title not in the IMDB database, or enters an incorrect title */
             if (body.Response === 'False') {
                 console.log('Movie not found. Please check the title or try another title.');
             } else {
-                console.log('Title:', body.Title, '\nYear:', body.Year, '\nIMDB Rating: ' + body.imdbRating, '\nRotten Tomatoes rating: ', body.Ratings[1].Value, '\nCountry: ', body.Country, '\nLanguage', body.Language, '\nPlot: ', body.Plot, '\nActors & Actresses: ', body.Actors);
+                console.log('Title:', body.Title, '\nYear:', body.Year, '\nIMDB Rating:', body.imdbRating, '\nRotten Tomatoes rating:', body.Ratings[1].Value, '\nCountry:', body.Country, '\nLanguage:', body.Language, '\nPlot:', body.Plot, '\nActors & Actresses:', body.Actors);
             };
-
         });
-
     };
-
-
-
-
-}
+};
 
 function whatItSays() {
 
@@ -84,7 +93,7 @@ function whatItSays() {
         switchStatement();
         // console.log(data);
     })
-    console.log(`do-what-it-says`);
+    console.log('do-what-it-says');
 }
 
 function switchStatement() {
@@ -105,11 +114,11 @@ function switchStatement() {
             whatItSays();
             break;
 
-        case 'instructions':
-            instructions();
+        case 'help':
+            help();
 
         default:
-            console.log('Sorry, that input is invalid. Please enter a valid command. For help, type instructions at the command prompt.');
+            console.log('Sorry, that input is invalid. Please enter a valid command. For help, type help at the command prompt.');
     }
 };
 
