@@ -21,18 +21,15 @@ LIRI makes use of JavaScript, Node.js and various packages to take in user input
     `SPOTIFY_ID=your-spotify-id`
     `SPOTIFY_SECRET=your-spotify-secret`
 
-4. at the console command prompt, type `npm i` - this will read the `package.json` file and install any needed npm packages.
+4. at the command line, type `npm i` - this will read the `package.json` file and install any needed npm packages.
 
 
 ## Instructions:
 To use this app, navigate in the command line to the directory where the LIRI files are located, type `node`, and enter 2 items: 
 
 * for concert info, type `concert-this`, followed by the artist you want to search.
-
 * For spotify info, type `spotify-this-song`, followed by the artist name. 
-
 * For movie info, type `movie-this`, followed by the movie title. 
-
 * Entering `do-what-it-says` processes the output from an existing text file, random.txt. 
 
 Note: For elements with more than 1 word in their name, surround the content in quotes.
@@ -40,7 +37,7 @@ For example - type this at the command line: `node liri.js movie-this "Star Wars
 
 ## Technology used:
 * JavaScript
-* Node.js - https://nodejs.org/en/
+* Node.js - https://nodejs.org
 * Moment.js for date formatting - https://www.npmjs.com/package/moment
 * Request HTTP client - https://www.npmjs.com/package/request#promises--asyncawait
 * Node Spotify API - https://www.npmjs.com/package/node-spotify-api
