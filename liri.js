@@ -12,7 +12,7 @@ var command = process.argv[2];
 var itemToSearch = process.argv[3];
 
 function help() {
-    console.log("____________________________________________________________________________________\nInstructions:\nTo use this app, enter 2 items at the command line: \nfor concert info, type concert-this, followed by the artist you want to search.\nFor spotify info, type spotify-this-song, followed by the artist name. \nFor movie info, type movie-this, followed by the movie title. \ndo-what-it-says, processes the output from an existing text file, random.txt. \nFor elements with more than 1 word in their name, surround the content in quotes.\nFor example - type this at the command line: node liri.js movie-this \"Star Wars\"\n____________________________________________________________________________________")
+    console.log("_______________________________________________________________________________________\nInstructions:\nTo use LIRI, type node liri.js and the 2 items at the command line you want to search: \nfor concert info, type", "\x1b[33m", "concert-this", "\x1b[0m", "followed by the artist you want to search.\nFor spotify info, type", "\x1b[33m", "spotify-this-song", "\x1b[0m", "followed by the song name. \nFor movie info, type", "\x1b[33m", "movie-this,", "\x1b[0m", "followed by the movie title.", "\x1b[33m", "\ndo-what-it-says", "\x1b[0m", "processes the output from an existing text file, random.txt. \nFor elements with more than 1 word in their name, surround the content in quotes.\nFor example - type this at the command line:", "\x1b[32m", "node liri.js movie-this \"Star Wars\"", "\x1b[0m", "\n_______________________________________________________________________________________")
 };
 
 function concert() {
@@ -21,11 +21,12 @@ function concert() {
     var concertURL = "https://rest.bandsintown.com/artists/" + itemToSearch + "/events?app_id=codingbootcamp";
 
     request(concertURL, function (error, response, body) {
+        if (error) {
+            return console.log('its false!')
+        }
         body = JSON.parse(body);
         //error detection - THIS DOES NOT WORK
-        if (body.Response === 'warn=Not found') {
-            console.log('its false!')
-        } else if (body.length < 1) {
+        if (body.length < 1) {
             console.log("\nThere is no info for this band. Please try another band.");
         } else {
             console.log('\n');
@@ -48,12 +49,12 @@ function song() {
         query: itemToSearch
     }, function (err, data) {
         if (err) {
-            console.log('\nThere was an error. Please try again');
+            return console.log('\nSpotify could not find data for that selection. Please try again.');
         };
         if (data.tracks.items[0].preview_url === null) {
             console.log('\nArtist:', data.tracks.items[0].album.artists[0].name, '\nSong title:', data.tracks.items[0].name, '\nSpotify preview link:', 'not available', '\nAlbum:', data.tracks.items[0].album.name);
         } else {
-            console.log('\nArtist:', data.tracks.items[0].album.artists[0].name, '\nSong title:', data.tracks.items[0].name, '\nSpotify preview link:', data.tracks.items[0].preview_url, '\nAlbum:', data.tracks.items[0].album.name);
+            console.log('\nArtist:', data.tracks.items[0].album.artists[0].name, '\nSong title:', data.tracks.items[0].name, '\nSpotify preview link: (CTRL-click/CMD-click', data.tracks.items[0].preview_url, '\nAlbum:', data.tracks.items[0].album.name);
         };
     });
 
