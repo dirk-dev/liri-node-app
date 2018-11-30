@@ -4,14 +4,14 @@ LIRI stands for *Language Interpretation and Recognition Interface*.
 LIRI makes use of JavaScript, Node.js and various packages to take in user input from the command line and use API calls for Spotify, IMDB (Internet Movie DataBase), and Bands in Town, as well as a custom query that extracts data from a text file. It outputs the results to the command line/console it was run from.
 
 # Setup:
-1.If not installed already, download & install Node.js on your computer: https://nodejs.org/en/
-2.Copy the files to the directory you wish to run LIRI from  
+1. If not installed already, download & install Node.js on your computer: https://nodejs.org/en/
+
+2. Copy the files to the directory you wish to run LIRI from  
 3. If you wish to use the Spotify functionality, you will need to get a `Spotify ID` and `secret`. 
     a. Step One: Visit <https://developer.spotify.com/my-applications/#!/>
 
-   * Step Two: Either login to your existing Spotify account or create a new one (a free account is fine) and log in.
-
-   * Step Three: Once logged in, navigate to <https://developer.spotify.com/my-applications/#!/applications/create> to register a new application to be used with the Spotify API. You can fill in whatever you'd like for these fields. When finished, click the "complete" button.
+   b. Step Two: Either login to your existing Spotify account or create a new one (a free account is fine) and log in.
+    c. Step Three: Once logged in, navigate to <https://developer.spotify.com/my-applications/#!/applications/create> to register a new application to be used with the Spotify API. You can fill in whatever you'd like for these fields. When finished, click the "complete" button.
 
    * Step Four: On the next screen, scroll down to where you see your client id and client secret. Copy these values down somewhere, you'll need them to use the Spotify API and the [node-spotify-api package](https://www.npmjs.com/package/node-spotify-api).
 
