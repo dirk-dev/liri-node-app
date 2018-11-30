@@ -13,11 +13,12 @@ LIRI makes use of JavaScript, Node.js and various packages to take in user input
     * Step Two: Either login to your existing Spotify account or create a new one (a free account will work) and log in.
     * Step Three: Once logged in, navigate to <https://developer.spotify.com/my-applications/#!/applications/create> to register a new application to be used with the Spotify API. You can fill in whatever you'd like for these fields. When finished, click the `complete` button.
     * Step Four: On the next screen, scroll down to where you see your client id and client secret. Copy these values down.
-        * create a new file named `.env` in the same directory as the other files you created and paste in the following, each item on its own line. Replacing the code after the = sign with your Spotify ID and secret.
+    * create a new file named `.env` in the same directory as the other files you created and paste in the following, each item on its own line. Replacing the code after the = sign with your Spotify ID and secret.
     `SPOTIFY_ID=your-spotify-id`
+
     `SPOTIFY_SECRET=your-spotify-secret`
 
-4. at the command line, type `npm i` - this will read the `package.json` file and install any needed npm packages.
+4. at the command line, type `npm i` - this will read the `package.json` file and install any packages needed by LIRI.
 
 
 ## Instructions:
@@ -28,9 +29,10 @@ To use this app, navigate in the command line to the directory where the LIRI fi
 * Entering `do-what-it-says` processes the output from an existing text file, random.txt. 
 
 Note: For elements with more than 1 word in their name, surround the content in quotes.
+
 For example - type this at the command line: `node liri.js movie-this "Star Wars"`
 
-## Technology used:
+## Technologies used:
 * JavaScript
 * Node.js - https://nodejs.org
 * Moment.js for date formatting - https://www.npmjs.com/package/moment
