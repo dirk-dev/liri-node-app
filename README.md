@@ -23,7 +23,7 @@ LIRI makes use of JavaScript, Node.js and various packages to take in user input
 
     **`SPOTIFY_SECRET=your-spotify-secret`**
 
-4. at the command line, type **`npm i`** - this will read the **`package.json`** file and install any packages needed by LIRI.
+4. at the command line in the directory where the LIRI files are located, type **`npm i`** - this will read the **`package.json`** file and install any packages needed by LIRI.
 
 
 ## Instructions:
@@ -36,6 +36,9 @@ To use this app, navigate in the command line to the directory where the LIRI fi
 Note: For elements with more than 1 word in their name, surround the content in quotes.
 
 For example - type this at the command line: **`node liri.js movie-this "Star Wars"`**
+
+### Spotify
+![Output sample](https://github.com/dirk-kiesewetter/liri-node-app/gifs/liri-spotify.gif)
 
 ## Technologies used:
 * JavaScript
