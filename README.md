@@ -27,16 +27,16 @@ LIRI makes use of JavaScript, Node.js and various packages to take in user input
 ## Instructions:
 To use this app, navigate in the command line to the directory where the LIRI files are located, type `node`, and enter 2 items: 
 
-for concert info, type `concert-this`, followed by the artist you want to search.
+* for concert info, type `concert-this`, followed by the artist you want to search.
 
-For spotify info, type `spotify-this-song`, followed by the artist name. 
+* For spotify info, type `spotify-this-song`, followed by the artist name. 
 
-For movie info, type `movie-this`, followed by the movie title. 
+* For movie info, type `movie-this`, followed by the movie title. 
 
-Entering `do-what-it-says` processes the output from an existing text file, random.txt. 
+* Entering `do-what-it-says` processes the output from an existing text file, random.txt. 
 
-For elements with more than 1 word in their name, surround the content in quotes.
-For example - type this at the command line: `*node liri.js movie-this "Star Wars"*`
+Note: For elements with more than 1 word in their name, surround the content in quotes.
+For example - type this at the command line: `node liri.js movie-this "Star Wars"`
 
 ## Technology used:
 * JavaScript
