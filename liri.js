@@ -26,8 +26,9 @@ function concert() {
         if (body.Response === 'warn=Not found') {
             console.log('its false!')
         } else if (body.length < 1) {
-            console.log("There is no info for this band. Please try another band.");
+            console.log("\nThere is no info for this band. Please try another band.");
         } else {
+            console.log('\n');
             for (let i = 0; i < body.length; i++) {
                 console.log(body[i].venue.name + ',' + ' ' + body[i].venue.city + ',' + ' ' + body[i].venue.region, moment(body[i].datetime).format("MM/DD/YYYY"))
             };
@@ -47,7 +48,7 @@ function song() {
         query: itemToSearch
     }, function (err, data) {
         if (err) {
-            console.log('There was an error. Please try again');
+            console.log('\nThere was an error. Please try again');
         };
         if (data.tracks.items[0].preview_url === null) {
             console.log('\nArtist:', data.tracks.items[0].album.artists[0].name, '\nSong title:', data.tracks.items[0].name, '\nSpotify preview link:', 'not available', '\nAlbum:', data.tracks.items[0].album.name);
@@ -66,7 +67,7 @@ function movie() {
     if (itemToSearch === undefined) {
         request('https://www.omdbapi.com/?t="Mr. Nobody"&y=&plot=short&apikey=trilogy', function (error, response, body) {
             body = JSON.parse(body);
-            console.log('Title:', body.Title, '\nYear:', body.Year, '\nIMDB Rating:', body.imdbRating, '\nRotten Tomatoes rating:', body.Ratings[1].Value, '\nCountry:', body.Country, '\nLanguage:', body.Language, '\nPlot:', body.Plot, '\nActors & Actresses:', body.Actors);
+            console.log('\nTitle:', body.Title, '\nYear:', body.Year, '\nIMDB Rating:', body.imdbRating, '\nRotten Tomatoes rating:', body.Ratings[1].Value, '\nCountry:', body.Country, '\nLanguage:', body.Language, '\nPlot:', body.Plot, '\nActors & Actresses:', body.Actors);
         });
     } else {
         request(omdbURL, function (error, response, body) {
@@ -75,9 +76,9 @@ function movie() {
 
             /* error checking - if user enters movie title not in the IMDB database, or enters an incorrect title */
             if (body.Response === 'False') {
-                console.log('Movie not found. Please check the title or try another title.');
+                console.log('\nMovie not found. Please check the title or try another title.');
             } else {
-                console.log('Title:', body.Title, '\nYear:', body.Year, '\nIMDB Rating:', body.imdbRating, '\nRotten Tomatoes rating:', body.Ratings[1].Value, '\nCountry:', body.Country, '\nLanguage:', body.Language, '\nPlot:', body.Plot, '\nActors & Actresses:', body.Actors);
+                console.log('\nTitle:', body.Title, '\nYear:', body.Year, '\nIMDB Rating:', body.imdbRating, '\nRotten Tomatoes rating:', body.Ratings[1].Value, '\nCountry:', body.Country, '\nLanguage:', body.Language, '\nPlot:', body.Plot, '\nActors & Actresses:', body.Actors);
             };
         });
     };
