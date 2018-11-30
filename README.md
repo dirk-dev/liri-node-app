@@ -4,7 +4,7 @@ LIRI stands for *Language Interpretation and Recognition Interface*.
 LIRI makes use of JavaScript, Node.js and various packages to take in user input from the command line. It uses API calls for Spotify, IMDB (Internet Movie DataBase), and Bands in Town, as well as a custom query that extracts data from a text file and outputs the results to the command line/console.
 
 ## Setup:
-1. If not installed already, download & install Node.js on your computer: https://nodejs.org/en/
+1. If not installed already, download & install `Node.js` on your computer: https://nodejs.org/en/
 
 2. Copy the files to the directory you wish to run LIRI from  
 3. If you wish to use the Spotify functionality, you will need to get a `Spotify ID` and `secret`.
@@ -25,15 +25,15 @@ LIRI makes use of JavaScript, Node.js and various packages to take in user input
 
 
 ## Instructions:
-To use this app, enter 2 items at the command line: 
-for concert info, type concert-this, followed by the artist you want to search.
-For spotify info, type spotify-this-song, followed by the artist name. 
-For movie info, type movie-this, followed by the movie title. 
-do-what-it-says, processes the output from an existing text file, random.txt. 
+To use this app, navigate in the command line to the directory where the LIRI files are located, type `node`, and enter 2 items: 
+for concert info, type `concert-this`, followed by the artist you want to search.
+For spotify info, type `spotify-this-song`, followed by the artist name. 
+For movie info, type `movie-this``, followed by the movie title. 
+`do-what-it-says` processes the output from an existing text file, random.txt. 
 For elements with more than 1 word in their name, surround the content in quotes.
-For example - type this at the command line: *node liri.js movie-this "Star Wars"*
+For example - type this at the command line: `*node liri.js movie-this "Star Wars"*`
 
-# Technology used:
+## Technology used:
 * JavaScript
 * Node.js - https://nodejs.org/en/
 * Moment.js for date formatting - https://www.npmjs.com/package/moment
