@@ -9,8 +9,8 @@ LIRI makes use of JavaScript, Node.js and various packages to take in user input
 2. Copy the files to the directory you wish to run LIRI from  
 3. If you wish to use the Spotify functionality, you will need to get a `Spotify ID` and `secret`.
 
-    * Step One: Visit <https://developer.spotify.com/my-applications/#!/>
-    * Step Two: Either login to your existing Spotify account or create a new one (a free account will work) and log in.
+    a. Visit <https://developer.spotify.com/my-applications/#!/>
+    b. Either login to your existing Spotify account or create a new one (a free account will work) and log in.
     * Step Three: Once logged in, navigate to <https://developer.spotify.com/my-applications/#!/applications/create> to register a new application to be used with the Spotify API. You can fill in whatever you'd like for these fields. When finished, click the `complete` button.
     * Step Four: On the next screen, scroll down to where you see your client id and client secret. Copy these values down.
     * create a new file named `.env` in the same directory as the other files you created and paste in the following, each item on its own line. Replacing the code after the = sign with your Spotify ID and secret.
