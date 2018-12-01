@@ -47,6 +47,20 @@ For help in the console, type **`node liri help`**
 ### LIRI-help
 ![LIRI help](./images/liri_help.png)
 
+## Demo
+
+### LIRI concert-this 
+![LIRI concert-this](./gifs/liri-concert-this.gif)
+
+### LIRI spotify-this-song 
+![LIRI spotify-this-song](./gifs/liri-spotify-this-song.gif)
+
+### LIRI movie-this 
+![LIRI movie-this](./gifs/liri-movie-this.gif)
+
+### LIRI do-what-it-says 
+![LIRI do-what-it-says](./gifs/liri-do-what-it-says.gif)
+
 
 ## Technologies used:
 * JavaScript
