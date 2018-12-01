@@ -61,7 +61,6 @@ For help in the console, type **`node liri help`**
 ### LIRI do-what-it-says 
 ![LIRI do-what-it-says](./gifs/liri-do-what-it-says.gif)
 
-
 ## Technologies used:
 * JavaScript
 * Node.js - https://nodejs.org
