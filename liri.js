@@ -22,8 +22,8 @@ function concert() {
     axios.get(concertURL)
         .then(function (response) {
 
-            if (response.length < 1) {
-                console.log("\nThere is no info for this band. Please try another band.");
+            if (response.data.length < 1) {
+                console.log("\nThere is no info for this artist. Please try another artist.");
             } else {
                 console.log('\n');
                 for (let i = 0; i < response.data.length; i++) {
@@ -42,6 +42,8 @@ function song() {
     if (itemToSearch === undefined) {
         itemToSearch = "The Sign Ace of Base";
     };
+    /* search only returns the 1st song found; the market option returns songs that are only available in the geographic region related to the user token provided by Spotify. 
+     */
     spotify.search({
         type: 'track',
         limit: '1',
@@ -49,7 +51,7 @@ function song() {
         query: itemToSearch
     }, function (err, data) {
         if (err) {
-            return console.log('\nSpotify could not find data for that selection. Please try again.');
+            return console.log('\nThere is no info for this song. Please try again.');
         };
         if (data.tracks.items[0].preview_url === null) {
             console.log('\nArtist:', data.tracks.items[0].album.artists[0].name, '\nSong title:', data.tracks.items[0].name, '\nSpotify preview link:', 'not available', '\nAlbum:', data.tracks.items[0].album.name);
@@ -72,7 +74,6 @@ function movie() {
             })
             .catch(function (error) {
                 // error handling
-                console.log('\nMovie not found. Please check the title or try another title.');
             });
     }
     axios.get(omdbURL)
@@ -81,7 +82,7 @@ function movie() {
         })
         .catch(function (error) {
             // error handling
-            console.log('error');
+            console.log('\nMovie not found. Please check the title or try another title.');
         });
 
 };
