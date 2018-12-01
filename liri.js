@@ -67,7 +67,7 @@ function movie() {
     var omdbURL = "https://www.omdbapi.com/?t=" + itemToSearch + "&y=&plot=short&apikey=trilogy";
 
     //condition if user did not pick a title
-    if (itemToSearch === undefined) {
+    if (!itemToSearch) {
         axios.get('https://www.omdbapi.com/?t="Mr. Nobody"&y=&plot=short&apikey=trilogy')
             .then(function (response) {
                 console.log('\nTitle:', response.data.Title, '\nYear:', response.data.Year, '\nIMDB Rating:', response.data.imdbRating, '\nRotten Tomatoes rating:', response.data.Ratings[1].Value, '\nCountry:', response.data.Country, '\nLanguage:', response.data.Language, '\nPlot:', response.data.Plot, '\nActors & Actresses:', response.data.Actors);
@@ -75,15 +75,16 @@ function movie() {
             .catch(function (error) {
                 // error handling
             });
+    } else {
+        axios.get(omdbURL)
+            .then(function (response) {
+                console.log('\nTitle:', response.data.Title, '\nYear:', response.data.Year, '\nIMDB Rating:', response.data.imdbRating, '\nRotten Tomatoes rating:', response.data.Ratings[1].Value, '\nCountry:', response.data.Country, '\nLanguage:', response.data.Language, '\nPlot:', response.data.Plot, '\nActors & Actresses:', response.data.Actors);
+            })
+            .catch(function (error) {
+                // error handling
+                console.log('\nMovie not found. Please check the title or try another title.');
+            });
     }
-    axios.get(omdbURL)
-        .then(function (response) {
-            console.log('\nTitle:', response.data.Title, '\nYear:', response.data.Year, '\nIMDB Rating:', response.data.imdbRating, '\nRotten Tomatoes rating:', response.data.Ratings[1].Value, '\nCountry:', response.data.Country, '\nLanguage:', response.data.Language, '\nPlot:', response.data.Plot, '\nActors & Actresses:', response.data.Actors);
-        })
-        .catch(function (error) {
-            // error handling
-            console.log('\nMovie not found. Please check the title or try another title.');
-        });
 
 };
 
