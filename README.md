@@ -17,7 +17,7 @@ LIRI makes use of JavaScript, Node.js and various packages to take in user input
     
     d. On the next screen, scroll down to where you see your client id and client secret. Copy these values down.
     
-    e. create a new file named **`.env`** in the same directory as the other files you created and paste in the following, each item on its own line. Replacing the code after the = sign with your Spotify ID and secret.
+    e. Create a new file named **`.env`** in the same directory as the other files you created and paste in the following, each item on its own line. Replacing the code after the = sign with your Spotify ID and secret.
 
     **`SPOTIFY_ID=your-spotify-id`**
 
@@ -28,7 +28,7 @@ LIRI makes use of JavaScript, Node.js and various packages to take in user input
     ![LIRI directory structure](./images/directory_structure.png
     )
 
-4. at the command line in the directory where the LIRI files are located, type **`npm i`** - this will read the **`package.json`** file and install any packages needed by LIRI. They will be installed in the node_modules folder.
+4. At the command line in the directory where the LIRI files are located, type **`npm i`** - this will read the **`package.json`** file and install any packages needed by LIRI. They will be installed in the node_modules folder.
 
 
 ## Instructions:
@@ -64,7 +64,11 @@ For help in the console, type **`node liri help`**
 ## Technologies used:
 * JavaScript
 * Node.js - https://nodejs.org
-* Moment.js for date formatting - https://www.npmjs.com/package/moment
+* Moment.js (for date formatting) - https://www.npmjs.com/package/moment
 * Axios HTTP client - https://www.npmjs.com/package/axios
 * Node Spotify API - https://www.npmjs.com/package/node-spotify-api
-* dotenv - https://www.npmjs.com/package/dotenv
+* dotenv (to access the .env file) - https://www.npmjs.com/package/dotenv
+
+
+---
+**LIRI** was coded by me, and is maintained by me.
