@@ -45,6 +45,6 @@ For example - type this at the command line: **`node liri.js movie-this "Star Wa
 * JavaScript
 * Node.js - https://nodejs.org
 * Moment.js for date formatting - https://www.npmjs.com/package/moment
-* Request HTTP client - https://www.npmjs.com/package/request#promises--asyncawait
+* Axios HTTP client - https://www.npmjs.com/package/axios
 * Node Spotify API - https://www.npmjs.com/package/node-spotify-api
 * dotenv - https://www.npmjs.com/package/dotenv

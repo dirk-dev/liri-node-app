@@ -1,8 +1,16 @@
 {
   "name": "liri-node-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "LIRI stands for *Language Interpretation and Recognition Interface*. LIRI makes use of JavaScript, Node.js and various packages to take in user input from the command line. It uses API calls for Spotify, IMDB (Internet Movie DataBase), and Bands in Town, as well as a custom query that extracts data from a text file and outputs the results to the command line/console.",
+  "main": "keys.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "dotenv": "^6.1.0",
+    "node-spotify-api": "^1.0.7",
+    "moment": "^2.22.2",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,17 +18,10 @@
     "type": "git",
     "url": "git+https://github.com/dirk-kiesewetter/liri-node-app.git"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/dirk-kiesewetter/liri-node-app/issues"
   },
-  "homepage": "https://github.com/dirk-kiesewetter/liri-node-app#readme",
-  "dependencies": {
-    "dotenv": "^6.1.0",
-    "moment": "^2.22.2",
-    "node-spotify-api": "^1.0.7",
-    "request": "^2.88.0"
-  }
+  "homepage": "https://github.com/dirk-kiesewetter/liri-node-app#readme"
 }
