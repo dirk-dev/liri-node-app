@@ -23,11 +23,16 @@ LIRI makes use of JavaScript, Node.js and various packages to take in user input
 
     **`SPOTIFY_SECRET=your-spotify-secret`**
 
-4. at the command line in the directory where the LIRI files are located, type **`npm i`** - this will read the **`package.json`** file and install any packages needed by LIRI.
+    create the .env file highlighted here:
+
+    ![LIRI directory structure](./images/directory_structure.png
+    )
+
+4. at the command line in the directory where the LIRI files are located, type **`npm i`** - this will read the **`package.json`** file and install any packages needed by LIRI. They will be installed in the node_modules folder.
 
 
 ## Instructions:
-To use this app, navigate in the command line to the directory where the LIRI files are located, type **`node liri.js`**, and enter 2 items: 
+To use this app, navigate in the command line to the directory where the LIRI files are located, type **`node liri`**, and enter 2 items: 
 * for concert info, type **`concert-this`**, followed by the artist you want to search.
 * For spotify info, type **`spotify-this-song`**, followed by the artist name. 
 * For movie info, type **`movie-this`**, followed by the movie title. 
@@ -35,12 +40,12 @@ To use this app, navigate in the command line to the directory where the LIRI fi
 
 Note: For elements with more than 1 word in their name, surround the content in quotes.
 
-For example - type this at the command line: **`node liri.js movie-this "Star Wars"`**
+For example - type this at the command line: **`node liri movie-this "Star Wars"`**
 
-For help in the console, type **`node liri.js help`**
+For help in the console, type **`node liri help`**
 
-### LIRI-help demo
-![LIRI Spotify demo](./gifs/liri-help.gif)
+### LIRI-help
+![LIRI help](./images/liri_help.png)
 
 
 ## Technologies used:
