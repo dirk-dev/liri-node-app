@@ -6,7 +6,7 @@ LIRI makes use of JavaScript, Node.js and various packages to take in user input
 ## Setup:
 1. If not installed already, download & install **`Node.js`** on your computer: https://nodejs.org/en/
 
-2. Copy the files to the directory you wish to run LIRI from  
+2. Copy the files to the directory you wish to run LIRI from. You will only need to copy the following files: `keys.js, liri.js, package-lock.json, package.json`, and `random.txt`. The gifs and images folders are for the readme file.  
 3. To use the Spotify functionality, you will need to get a **`Spotify ID`** and **`secret`**.
 
     a. Visit <https://developer.spotify.com/my-applications/#!/>
