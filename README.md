@@ -31,7 +31,7 @@ LIRI makes use of JavaScript, Node.js and various packages to take in user input
 4. At the command line in the directory where the LIRI files are located, type **`npm i`** - this will read the **`package.json`** file and install any packages needed by LIRI. They will be installed in the node_modules folder.
 
 
-## Instructions:
+## How to use LIRI:
 To use this app, navigate in the command line to the directory where the LIRI files are located, type **`node liri`**, and enter 2 items: 
 * for concert info, type **`concert-this`**, followed by the artist you want to search.
 * For spotify info, type **`spotify-this-song`**, followed by the artist name. 
