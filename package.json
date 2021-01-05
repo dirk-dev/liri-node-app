@@ -4,7 +4,7 @@
   "description": "LIRI stands for *Language Interpretation and Recognition Interface*. LIRI makes use of JavaScript, Node.js and various packages to take in user input from the command line. It uses API calls for Spotify, IMDB (Internet Movie DataBase), and Bands in Town, as well as a custom query that extracts data from a text file and outputs the results to the command line/console.",
   "main": "keys.js",
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "dotenv": "^6.1.0",
     "node-spotify-api": "^1.0.7",
     "moment": "^2.22.2",
